@@ -7,3 +7,4 @@ Collection of code snippets to solve AoC 2023.
 |Day|Path|
 |---|----|
 |1|[Trebuchet](Trebuchet/Program.cs)|
+|2|[Cube Conundrum](CubeConundrum/Program.cs)|
