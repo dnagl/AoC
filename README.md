@@ -8,3 +8,4 @@ Collection of code snippets to solve AoC 2023.
 |---|----|
 |1|[Trebuchet](Trebuchet/Program.cs)|
 |2|[Cube Conundrum](CubeConundrum/Program.cs)|
+|3|[Gear Ratios](GearRatios/Program.cs)|
