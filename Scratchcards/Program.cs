@@ -2,11 +2,11 @@
 
 const string inputFile = "input.txt";
 
-Stage1(inputFile);
-Stage2(inputFile);
+Stage1();
+Stage2();
 return;
 
-void Stage1(string inputFile)
+void Stage1()
 {
     var result = File.ReadLines(inputFile)
         .Select(Card.Parse)
@@ -14,7 +14,7 @@ void Stage1(string inputFile)
     Console.WriteLine($"Stage 1: {result}");
 }
 
-void Stage2(string inputFile)
+void Stage2()
 {
     var cards = File.ReadLines(inputFile).Select(Card.Parse).ToList();
     var cardPile = cards.ToDictionary(x => x, x => 1);

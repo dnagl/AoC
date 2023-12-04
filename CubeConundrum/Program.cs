@@ -2,28 +2,23 @@
 
 const string inputFile = "input.txt";
 
-Stage1(inputFile);
-Stage2(inputFile);
+Stage1();
+Stage2();
 return;
 
-void Stage1(string inputFile)
+void Stage1()
 {
-    //restrictions:
-    //max 12 red cubes
-    //max 13 green cubes
-    //max 14 blue cubes
-
-    var result = Parse(inputFile)
-        .Where(game => game.Drafts.All(draft => draft.Red <= 12 && draft.Green <= 13 && draft.Blue <= 14))
+    var result = Parse()
+        .Where(game => game.Drafts.All(draft => draft is { Red: <= 12, Green: <= 13, Blue: <= 14 }))
         .Select(game => game.Id)
         .Sum();
     
     Console.WriteLine($"Stage 1: {result}");
 }
 
-void Stage2(string inputFile)
+void Stage2()
 {
-    var result = Parse(inputFile)
+    var result = Parse()
         .Select(game => game.GetMinimumCubeSet())
         .Select(x => x.Blue * x.Green * x.Red)
         .Sum();
@@ -31,4 +26,4 @@ void Stage2(string inputFile)
     Console.WriteLine($"Stage 1: {result}");
 }
 
-IEnumerable<Game> Parse(string inputFile) => File.ReadLines(inputFile).Select(Game.Parse);
+IEnumerable<Game> Parse() => File.ReadLines(inputFile).Select(Game.Parse);

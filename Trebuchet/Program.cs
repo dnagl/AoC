@@ -2,22 +2,22 @@
 
 const string inputFile = "input.txt";
 
-Stage1(inputFile);
-Stage2(inputFile);
+Stage1();
+Stage2();
 return;
 
-void Stage1(string fileName)
+void Stage1()
 {
-    var input = File.ReadAllLines(fileName);
+    var input = File.ReadAllLines(inputFile);
     
     var result = input.Select(line => $"{line.First(char.IsDigit)}{line.Last(char.IsDigit)}").Select(value => int.Parse(value)).Sum();
 
     Console.WriteLine($"Stage 1: {result}");
 }
 
-void Stage2(string file)
+void Stage2()
 {
-    var input = File.ReadAllLines(file);
+    var input = File.ReadAllLines(inputFile);
     const string PATTERN = @"one|two|three|four|five|six|seven|eight|nine|[0-9]";
     var result = 0;
     foreach (var line in input)

@@ -2,11 +2,11 @@
 
 const string fileName = "input.txt";
 
-Stage1(fileName);
-Stage2(fileName);
+Stage1();
+Stage2();
 return;
 
-void Stage1(string fileName)
+void Stage1()
 {
     var input = File.ReadAllLines(fileName);
     
@@ -24,7 +24,7 @@ void Stage1(string fileName)
     Console.WriteLine($"Stage 1: {result}");
 }
 
-void Stage2(string fileName)
+void Stage2()
 {
     var input = File.ReadAllLines(fileName);
     
