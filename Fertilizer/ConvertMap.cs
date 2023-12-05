@@ -2,30 +2,22 @@ namespace Fertilizer;
 
 public class ConvertMap
 {
-    public string Name { get; set; }
-    public List<Range> Ranges { get; set; } = new();
+    private List<Range> Ranges { get; set; } = new();
 
     public long ProcessMap(long seedLocation)
     {
-        foreach (var range in Ranges)
-        {
-            if (seedLocation >= range.SourceStart && seedLocation < range.SourceStart + range.Length)
-                return range.DestinationStart + (seedLocation - range.SourceStart);
-        }
+        foreach (var range in Ranges.Where(range => seedLocation >= range.SourceStart && seedLocation < range.SourceStart + range.Length))
+            return range.DestinationStart + (seedLocation - range.SourceStart);
 
         return seedLocation;
     }
-    
-    public static ConvertMap Parse(IEnumerable<string> lines)
+
+    private static ConvertMap Parse(IEnumerable<string> lines)
     {
         var tmp = lines.ToArray();
-        var convertMap = new ConvertMap
-        {
-            Name = tmp[0]
-        };
+        var convertMap = new ConvertMap();
         
         for(var i = 1; i < tmp.Length; i++) convertMap.Ranges.Add(Range.Parse(tmp[i]));
-        
         return convertMap;
     }
 

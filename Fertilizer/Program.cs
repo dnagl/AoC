@@ -13,13 +13,13 @@ void Stage1()
     var seeds = lines[0].Replace("seeds: ", "").Split(" ").Select(long.Parse).ToList();
 
     var result = seeds.Select(seed => maps.Aggregate(seed, (current, map) => map.ProcessMap(current))).Min();
-    
+
     Console.WriteLine($"Stage 1: {result}");
 }
 
 void Stage2()
 {
-    var lines = File.ReadLines(inputFile).ToList();
+    var lines = File.ReadLines(inputFile).ToArray();
     var maps = ConvertMap.ParseMaps(lines);
     var initialSeeds = lines[0].Replace("seeds: ", "").Split(" ").Select(long.Parse).ToArray();
 
@@ -41,5 +41,6 @@ void Stage2()
             }
         }
     }
+
     Console.WriteLine($"Stage 2: {result}");
 }
