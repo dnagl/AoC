@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GearRatios", "GearRatios\Ge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratchcards", "Scratchcards\Scratchcards.csproj", "{8BC1C6AA-DDAB-48C3-BA7E-D4A23D6DA95F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fertilizer", "Fertilizer\Fertilizer.csproj", "{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{8BC1C6AA-DDAB-48C3-BA7E-D4A23D6DA95F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BC1C6AA-DDAB-48C3-BA7E-D4A23D6DA95F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BC1C6AA-DDAB-48C3-BA7E-D4A23D6DA95F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
