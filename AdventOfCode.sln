@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratchcards", "Scratchcard
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fertilizer", "Fertilizer\Fertilizer.csproj", "{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaitForIt", "WaitForIt\WaitForIt.csproj", "{58A26485-8089-450C-B3BB-72BB4BE99EF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFEB7EB0-9ECC-48CE-BFE7-5242217BC76B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58A26485-8089-450C-B3BB-72BB4BE99EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A26485-8089-450C-B3BB-72BB4BE99EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A26485-8089-450C-B3BB-72BB4BE99EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A26485-8089-450C-B3BB-72BB4BE99EF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
