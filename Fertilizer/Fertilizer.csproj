@@ -11,7 +11,7 @@
       <None Update="input.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="input_stage1.txt">
+      <None Update="input_test.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
