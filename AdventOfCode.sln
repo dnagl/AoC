@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fertilizer", "Fertilizer\Fe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaitForIt", "WaitForIt\WaitForIt.csproj", "{58A26485-8089-450C-B3BB-72BB4BE99EF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HauntedWasteland", "HauntedWasteland\HauntedWasteland.csproj", "{8D0AC2C4-791C-4C84-AF8D-14767B2C5933}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirageMaintenance", "MirageMaintenance\MirageMaintenance.csproj", "{D8146E79-C4B0-40B2-A85A-EFB91BAF41B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +46,13 @@ Global
 		{58A26485-8089-450C-B3BB-72BB4BE99EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58A26485-8089-450C-B3BB-72BB4BE99EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58A26485-8089-450C-B3BB-72BB4BE99EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D0AC2C4-791C-4C84-AF8D-14767B2C5933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D0AC2C4-791C-4C84-AF8D-14767B2C5933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D0AC2C4-791C-4C84-AF8D-14767B2C5933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D0AC2C4-791C-4C84-AF8D-14767B2C5933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8146E79-C4B0-40B2-A85A-EFB91BAF41B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8146E79-C4B0-40B2-A85A-EFB91BAF41B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8146E79-C4B0-40B2-A85A-EFB91BAF41B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8146E79-C4B0-40B2-A85A-EFB91BAF41B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
