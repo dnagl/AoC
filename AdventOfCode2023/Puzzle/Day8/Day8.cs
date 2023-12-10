@@ -3,12 +3,12 @@
 [PuzzleInformation(Name ="Haunted Wasteland", Day = 8, Complete = true)]
 public class Day8 : IPuzzle
 {
-    private readonly string _filename = "input.txt";
+    private const string Filename = "input.txt";
     private IEnumerable<string> _lines;
     
     public void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(8, _filename);
+        _lines = Utils.Utils.ReadPuzzleLines(8, Filename);
     }
 
     public string Part1()

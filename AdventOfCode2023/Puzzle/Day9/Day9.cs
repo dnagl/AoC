@@ -3,7 +3,7 @@
 [PuzzleInformation(Name ="Mirage Maintenance", Day = 7, Complete = true)]
 public class Day9 : IPuzzle
 {
-    private readonly string _filename = "input.txt";
+    private const string Filename = "input.txt";
     private IEnumerable<string> _lines;
 
     private long _resultPart1 = 0;
@@ -11,7 +11,7 @@ public class Day9 : IPuzzle
     
     public void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(9, _filename);
+        _lines = Utils.Utils.ReadPuzzleLines(9, Filename);
         Run();
     }
 

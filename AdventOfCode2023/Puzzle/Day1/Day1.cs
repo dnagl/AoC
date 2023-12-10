@@ -5,12 +5,12 @@ namespace AdventOfCode2023.Puzzle.Day1;
 [PuzzleInformation(Name ="Trebuchet", Day = 1, Complete = true)]
 public class Day1 : IPuzzle
 {
-    private readonly string _filename = "input.txt";
+    private const string Filename = "input.txt";
     private IEnumerable<string> _lines;
     
     public void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(1, _filename);
+        _lines = Utils.Utils.ReadPuzzleLines(1, Filename);
     }
 
     public string Part1()

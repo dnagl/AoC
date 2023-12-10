@@ -3,12 +3,12 @@
 [PuzzleInformation(Name ="Scratchcards", Day = 4, Complete = true)]
 public class Day4 : IPuzzle
 {
-    private readonly string _filename = "input.txt";
+    private const string Filename = "input.txt";
     private IEnumerable<string> _lines;
     
     public void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(4, _filename);
+        _lines = Utils.Utils.ReadPuzzleLines(4, Filename);
     }
 
     public string Part1() => _lines.Select(Card.Parse).Sum(x => x.GetValue()).ToString();

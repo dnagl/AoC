@@ -3,12 +3,12 @@
 [PuzzleInformation(Name ="", Day = 11, Complete = true)]
 public class Day11 : IPuzzle
 {
-    private readonly string _filename = "input_test.txt";
+    private const string Filename = "input_test.txt";
     private IEnumerable<string> _lines;
     
     public void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(11, _filename);
+        _lines = Utils.Utils.ReadPuzzleLines(11, Filename);
     }
 
     public string Part1()

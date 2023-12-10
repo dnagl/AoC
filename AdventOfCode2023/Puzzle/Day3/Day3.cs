@@ -5,12 +5,12 @@ namespace AdventOfCode2023.Puzzle.Day3;
 [PuzzleInformation(Name ="Gear Ratios", Day = 3, Complete = true)]
 public class Day3 : IPuzzle
 {
-    private readonly string _filename = "input.txt";
+    private const string Filename = "input.txt";
     private IEnumerable<string> _lines;
     
     public void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(3, _filename);
+        _lines = Utils.Utils.ReadPuzzleLines(3, Filename);
     }
 
     public string Part1()

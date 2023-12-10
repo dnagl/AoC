@@ -1,25 +1,24 @@
-﻿using System.Data;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace AdventOfCode2023.Puzzle.Day10;
 
 [PuzzleInformation(Name ="Pipe Maze", Day = 10, Complete = true)]
 public class Day10 : IPuzzle
 {
-    private readonly string _filename = "input.txt";
+    private static readonly Complex Up = -Complex.ImaginaryOne;
+    private static readonly Complex Down = Complex.ImaginaryOne;
+    private static readonly Complex Right = Complex.One;
+    private static readonly Complex Left = -Complex.One;
+    private static readonly Complex[] Directions = { Up, Right, Down, Left };
+
+    private const string Filename = "input.txt";
     private IEnumerable<string> _lines;
 
     private Dictionary<Complex, char> _map = new();
 
-    static readonly Complex Up = -Complex.ImaginaryOne;
-    static readonly Complex Down = Complex.ImaginaryOne;
-    static readonly Complex Right = Complex.One;
-    static readonly Complex Left = -Complex.One;
-    static readonly Complex[] Directions = { Up, Right, Down, Left };
-    
     public void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(10, _filename).ToArray();
+        _lines = Utils.Utils.ReadPuzzleLines(10, Filename).ToArray();
         var lines = _lines.ToArray();
 
         for (var i = 0; i < lines.Length; i++)
@@ -27,15 +26,20 @@ public class Day10 : IPuzzle
                 _map[new Complex(j, i)] = lines[i][j];
     }
 
-    public string Part1()
-    {
-        var loop = LoopPositions();
-        return (loop.Count / 2).ToString();
-    }
+    public string Part1() => (LoopPositions().Count / 2).ToString();
 
     public string Part2()
     {
-        throw new NotImplementedException();
+        var loop = LoopPositions();
+
+        var map = (
+                from entry in _map
+                let position = entry.Key
+                let cell = loop.Contains(position) ? entry.Value : '.'
+                select (position, cell))
+            .ToDictionary(x => x.position, x => x.cell);
+
+        return (map.Keys.Count(position => Inside(map, position))).ToString();
     }
 
     private HashSet<Complex> LoopPositions()
@@ -51,16 +55,31 @@ public class Day10 : IPuzzle
             if (_map[current] == 'S')
                 break;
 
-            var directionsOut = DirectionsOut(_map[current]);
             direction = DirectionsOut(_map[current]).Single(x => x != -direction);
         }
         
         return result;
     }
 
-    private Complex[] DirectionsIn(char c) => DirectionsOut(c).Select(c => -c).ToArray();
+    private bool Inside(Dictionary<Complex, char> map, Complex position)
+    {
+        if (map[position] != '.')
+            return false;
 
-    private Complex[] DirectionsOut(char c)
+        var result = false;
+        position--;
+        while (map.ContainsKey(position))
+        {
+            if ("SJL|".Contains(map[position]))
+                result = !result;
+            position--;
+        }
+        return result;
+    }
+    
+    private static IEnumerable<Complex> DirectionsIn(char c) => DirectionsOut(c).Select(c => -c).ToArray();
+
+    private static IEnumerable<Complex> DirectionsOut(char c)
     {
         return c switch
         {

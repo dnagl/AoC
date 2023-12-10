@@ -3,12 +3,12 @@
 [PuzzleInformation(Name ="Camel Cards", Day = 7, Complete = true)]
 public class Day7 : IPuzzle
 {
-    private readonly string _filename = "input.txt";
+    private const string Filename = "input.txt";
     private IEnumerable<string> _lines;
     
     public void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(7, _filename);
+        _lines = Utils.Utils.ReadPuzzleLines(7, Filename);
     }
 
     public string Part1() => _lines.Select(x => x.Split(" "))
