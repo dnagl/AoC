@@ -3,7 +3,7 @@
 namespace AdventOfCode2023.Puzzle.Day10;
 
 [PuzzleInformation(Name ="Pipe Maze", Day = 10, Complete = true)]
-public class Day10 : IPuzzle
+public class Day10 : PuzzleBase<Day10>
 {
     private static readonly Complex Up = -Complex.ImaginaryOne;
     private static readonly Complex Down = Complex.ImaginaryOne;
@@ -11,24 +11,23 @@ public class Day10 : IPuzzle
     private static readonly Complex Left = -Complex.One;
     private static readonly Complex[] Directions = { Up, Right, Down, Left };
 
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
-
     private Dictionary<Complex, char> _map = new();
 
-    public void Setup()
+    public Day10() : base("input.txt") { }
+    
+    public override void Setup()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(10, Filename).ToArray();
-        var lines = _lines.ToArray();
+        Lines = Utils.Utils.ReadPuzzleLines(10, Filename).ToArray();
+        var lines = Lines.ToArray();
 
         for (var i = 0; i < lines.Length; i++)
             for (var j = 0; j < lines[i].Length; j++)
                 _map[new Complex(j, i)] = lines[i][j];
     }
 
-    public string Part1() => (LoopPositions().Count / 2).ToString();
+    public override string Part1() => (LoopPositions().Count / 2).ToString();
 
-    public string Part2()
+    public override string Part2()
     {
         var loop = LoopPositions();
 

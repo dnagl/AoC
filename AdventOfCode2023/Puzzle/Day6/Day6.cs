@@ -1,21 +1,15 @@
 ﻿namespace AdventOfCode2023.Puzzle.Day6;
 
 [PuzzleInformation(Name ="Wait For It", Day = 6, Complete = true)]
-public class Day6 : IPuzzle
+public class Day6 : PuzzleBase<Day6>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
-    
-    public void Setup()
-    {
-        _lines = Utils.Utils.ReadPuzzleLines(6, Filename);
-    }
+    public Day6() : base("input.txt") { }
 
-    public string Part1()
+    public override string Part1()
     {
         var races = new List<Race>();
         var racesCreated = false;
-        foreach (var line in _lines)
+        foreach (var line in Lines)
         {
             var token = line.Split(" ").Where(x => x != "").ToArray();
             for (var i = 1; i < token.Length; i++)
@@ -46,9 +40,9 @@ public class Day6 : IPuzzle
         return result.ToString();
     }
 
-    public string Part2()
+    public override string Part2()
     {
-        var lines = _lines.ToList();
+        var lines = Lines.ToList();
         var race = new Race
         {
             Time = long.Parse(lines[0].Replace("Time:", "").Replace(" ", "")),

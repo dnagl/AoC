@@ -3,19 +3,13 @@
 namespace AdventOfCode2023.Puzzle.Day3;
 
 [PuzzleInformation(Name ="Gear Ratios", Day = 3, Complete = true)]
-public class Day3 : IPuzzle
+public class Day3 : PuzzleBase<Day3>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
-    
-    public void Setup()
-    {
-        _lines = Utils.Utils.ReadPuzzleLines(3, Filename);
-    }
+    public Day3() : base("input.txt") { }
 
-    public string Part1()
+    public override string Part1()
     {
-        var input = _lines.ToArray();
+        var input = Lines.ToArray();
         return input.Select((line, index) =>
             new Regex(@"\d+").Matches(line).SelectMany(match => match.Groups.Cast<Group>().Select(group => group.Captures.First()))
                 .Where(n =>
@@ -28,9 +22,9 @@ public class Day3 : IPuzzle
         ).Sum().ToString();
     }
 
-    public string Part2()
+    public override string Part2()
     {
-        var input = _lines.ToArray();
+        var input = Lines.ToArray();
         return input.Select((line, index) =>
             new Regex(@"\*").Matches(line).SelectMany(match => match.Groups.Cast<Group>().Select(group => group.Captures.First()))
                 .Select(g => new (int, int)[] { (index - 1, g.Index), (index + 1, g.Index) }

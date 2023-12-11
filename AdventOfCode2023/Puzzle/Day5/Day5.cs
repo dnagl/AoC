@@ -1,28 +1,22 @@
 ﻿namespace AdventOfCode2023.Puzzle.Day5;
 
 [PuzzleInformation(Name ="If You Give A Seed A Fertilizer", Day = 5, Complete = true)]
-public class Day5 : IPuzzle
+public class Day5 : PuzzleBase<Day5>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
-    
-    public void Setup()
-    {
-        _lines = Utils.Utils.ReadPuzzleLines(5, Filename);
-    }
+    public Day5() : base("input.txt") { }
 
-    public string Part1()
+    public override string Part1()
     {
-        var input = _lines.ToList();
-        var maps = ConvertMap.ParseMaps(_lines);
+        var input = Lines.ToList();
+        var maps = ConvertMap.ParseMaps(Lines);
         var seeds = input[0].Replace("seeds: ", "").Split(" ").Select(long.Parse).ToList();
 
         return seeds.Select(seed => maps.Aggregate(seed, (current, map) => map.ProcessMap(current))).Min().ToString();
     }
 
-    public string Part2()
+    public override string Part2()
     {
-        var lines = _lines.ToList();
+        var lines = Lines.ToList();
         var maps = ConvertMap.ParseMaps(lines);
         var initialSeeds = lines[0].Replace("seeds: ", "").Split(" ").Select(long.Parse).ToArray();
 

@@ -1,19 +1,13 @@
 ﻿namespace AdventOfCode2023.Puzzle.Day8;
 
 [PuzzleInformation(Name ="Haunted Wasteland", Day = 8, Complete = true)]
-public class Day8 : IPuzzle
+public class Day8 : PuzzleBase<Day8>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
+    public Day8() : base("input.txt") { }
     
-    public void Setup()
+    public override string Part1()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(8, Filename);
-    }
-
-    public string Part1()
-    {
-        var map = Map.Parse(_lines);
+        var map = Map.Parse(Lines);
         
         var result = 0;
         var node = "AAA";
@@ -26,9 +20,9 @@ public class Day8 : IPuzzle
         return result.ToString();
     }
 
-    public string Part2()
+    public override string Part2()
     {
-        var map = Map.Parse(_lines);
+        var map = Map.Parse(Lines);
 
         var startingNodes = map.Nodes.Where(x => x.Key.EndsWith("A"));
 

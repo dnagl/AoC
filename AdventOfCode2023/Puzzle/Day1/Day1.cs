@@ -3,27 +3,21 @@
 namespace AdventOfCode2023.Puzzle.Day1;
 
 [PuzzleInformation(Name ="Trebuchet", Day = 1, Complete = true)]
-public class Day1 : IPuzzle
+public class Day1 : PuzzleBase<Day1>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
-    
-    public void Setup()
-    {
-        _lines = Utils.Utils.ReadPuzzleLines(1, Filename);
-    }
+    public Day1() : base("input.txt"){ }
 
-    public string Part1()
+    public override string Part1()
     {
-        return _lines.Select(line => $"{line.First(char.IsDigit)}{line.Last(char.IsDigit)}")
+        return Lines.Select(line => $"{line.First(char.IsDigit)}{line.Last(char.IsDigit)}")
             .Select(value => int.Parse(value)).Sum().ToString();
     }
 
-    public string Part2()
+    public override string Part2()
     {
         const string PATTERN = @"one|two|three|four|five|six|seven|eight|nine|[0-9]";
         var result = 0;
-        foreach (var line in _lines)
+        foreach (var line in Lines)
         {
             var first = Regex.Match(line, PATTERN);
             var last = Regex.Match(line, PATTERN, RegexOptions.RightToLeft);

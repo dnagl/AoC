@@ -1,23 +1,29 @@
 ﻿namespace AdventOfCode2023.Puzzle.Day9;
 
 [PuzzleInformation(Name ="Mirage Maintenance", Day = 7, Complete = true)]
-public class Day9 : IPuzzle
+public class Day9 : PuzzleBase<Day9>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
 
     private long _resultPart1 = 0;
     private long _resultPart2 = 0;
     
-    public void Setup()
+    public Day9() : base("input.txt") { }
+
+    public override string Part1()
     {
-        _lines = Utils.Utils.ReadPuzzleLines(9, Filename);
-        Run();
+        Solve();
+        return _resultPart1.ToString();
     }
 
-    private void Run()
+    public override string Part2()
     {
-        var lines = _lines.Select(x => x.Split(" ").Select(long.Parse).ToArray()).ToList();
+        Solve();
+        return _resultPart2.ToString();
+    }
+    
+    private void Solve()
+    {
+        var lines = Lines.Select(x => x.Split(" ").Select(long.Parse).ToArray()).ToList();
     
         foreach (var line in lines)
         {
@@ -48,8 +54,4 @@ public class Day9 : IPuzzle
             _resultPart2 += valuePart2;
         }
     }
-
-    public string Part1() => _resultPart1.ToString();
-
-    public string Part2() => _resultPart2.ToString();
 }

@@ -1,21 +1,15 @@
 ﻿namespace AdventOfCode2023.Puzzle.Day4;
 
 [PuzzleInformation(Name ="Scratchcards", Day = 4, Complete = true)]
-public class Day4 : IPuzzle
+public class Day4 : PuzzleBase<Day4>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
-    
-    public void Setup()
-    {
-        _lines = Utils.Utils.ReadPuzzleLines(4, Filename);
-    }
+    public Day4() : base("input.txt") { }
 
-    public string Part1() => _lines.Select(Card.Parse).Sum(x => x.GetValue()).ToString();
+    public override string Part1() => Lines.Select(Card.Parse).Sum(x => x.GetValue()).ToString();
 
-    public string Part2()
+    public override string Part2()
     {
-        var cards = _lines.Select(Card.Parse).ToList();
+        var cards = Lines.Select(Card.Parse).ToList();
         var cardPile = cards.ToDictionary(x => x, x => 1);
 
         foreach (var entry in cardPile)

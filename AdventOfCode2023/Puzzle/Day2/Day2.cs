@@ -1,17 +1,11 @@
 ﻿namespace AdventOfCode2023.Puzzle.Day2;
 
 [PuzzleInformation(Name ="Cube Condrum", Day = 2, Complete = true)]
-public class Day2 : IPuzzle
+public class Day2 : PuzzleBase<Day2>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
-    
-    public void Setup()
-    {
-        _lines = Utils.Utils.ReadPuzzleLines(2, Filename);
-    }
+    public Day2() : base("input.txt") { }
 
-    public string Part1()
+    public override string Part1()
     {
         return Parse()
             .Where(game => game.Drafts.All(draft => draft is { Red: <= 12, Green: <= 13, Blue: <= 14 }))
@@ -19,7 +13,7 @@ public class Day2 : IPuzzle
             .Sum().ToString();
     }
 
-    public string Part2()
+    public override  string Part2()
     {
         return Parse()
             .Select(game => game.GetMinimumCubeSet())

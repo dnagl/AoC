@@ -1,22 +1,16 @@
 ﻿namespace AdventOfCode2023.Puzzle.Day7;
 
 [PuzzleInformation(Name ="Camel Cards", Day = 7, Complete = true)]
-public class Day7 : IPuzzle
+public class Day7 : PuzzleBase<Day7>
 {
-    private const string Filename = "input.txt";
-    private IEnumerable<string> _lines;
-    
-    public void Setup()
-    {
-        _lines = Utils.Utils.ReadPuzzleLines(7, Filename);
-    }
+    public Day7() : base("input.txt") { }
 
-    public string Part1() => _lines.Select(x => x.Split(" "))
+    public override string Part1() => Lines.Select(x => x.Split(" "))
         .Select(x => (GetPairWildcard(x[0]), int.Parse(x[1]), x[0]))
         .OrderBy(x => x.Item1).ThenBy(x => x.Item3, new CardSort(1))
         .Select((x, i) => (i + 1) * x.Item2).Sum().ToString();
 
-    public string Part2() => _lines.Select(x => x.Split(" "))
+    public override string Part2() => Lines.Select(x => x.Split(" "))
         .Select(x => (GetPairWildcard(x[0]), int.Parse(x[1]), x[0]))
         .OrderBy(x => x.Item1).ThenBy(x => x.Item3, new CardSort(1))
         .Select((x, i) => (i + 1) * x.Item2).Sum().ToString();
