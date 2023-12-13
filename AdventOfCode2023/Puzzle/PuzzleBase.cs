@@ -9,6 +9,7 @@ public abstract class PuzzleBase<T> : IPuzzle
     protected PuzzleBase(string filename)
     {
         Filename = filename;
+        Setup();
     }
 
     public virtual void Setup()
