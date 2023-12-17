@@ -26,7 +26,7 @@ public class Day8 : PuzzleBase<Day8>
 
         var startingNodes = map.Nodes.Where(x => x.Key.EndsWith("A"));
 
-        var leastCommonMultiple = 1l;
+        var leastCommonMultiple = 1L;
 
         foreach (var node in startingNodes)
         {

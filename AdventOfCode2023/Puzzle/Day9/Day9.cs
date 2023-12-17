@@ -41,8 +41,8 @@ public class Day9 : PuzzleBase<Day9>
 
             currentReduction.Reverse();
 
-            var valuePart1 = 0l;
-            var valuePart2 = 0l;
+            var valuePart1 = 0L;
+            var valuePart2 = 0L;
         
             foreach (var reduction in currentReduction.Skip(1))
             {

@@ -9,14 +9,12 @@ public abstract class PuzzleBase<T> : IPuzzle
     protected PuzzleBase(string filename)
     {
         Filename = filename;
-    }
-
-    public virtual void Setup()
-    {
         var attribute = Attribute.GetCustomAttribute(typeof(T), typeof(PuzzleInformation)) as PuzzleInformation;
+        if (attribute == null) throw new Exception("PuzzleInformation attribute is missing");
         Lines = Utils.Utils.ReadPuzzleLines(attribute.Day, Filename);
     }
 
+    public virtual void Setup(){}
     public abstract string Part1();
     public abstract string Part2();
 }

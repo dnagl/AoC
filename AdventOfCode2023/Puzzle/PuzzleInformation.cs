@@ -3,7 +3,7 @@
 [AttributeUsage(AttributeTargets.Class)]
 public class PuzzleInformation : Attribute
 {
-    public string Name { get; set; }
-    public int Day { get; set; }
-    public bool Complete { get; set; }
+    public required string Name { get; set; }
+    public required int Day { get; set; }
+    public required bool Complete { get; set; }
 }

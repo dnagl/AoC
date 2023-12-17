@@ -22,7 +22,7 @@ public class Day5 : PuzzleBase<Day5>
 
         var result = long.MaxValue; 
     
-        var startingSeed = 0l;
+        var startingSeed = 0L;
         for (var seedIdx = 0; seedIdx < initialSeeds.Length; seedIdx++)
         {
             if (seedIdx % 2 == 0)

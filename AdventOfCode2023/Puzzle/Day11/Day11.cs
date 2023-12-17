@@ -66,7 +66,7 @@ public class Day11 : PuzzleBase<Day11>
             galaxyPairs[pair.Key] = xDistance + yDistance;
         }
 
-        var result = 0l;
+        var result = 0L;
         foreach (var pair in galaxyPairs)
             result += pair.Value;
         

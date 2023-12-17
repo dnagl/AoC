@@ -1,6 +1,4 @@
-﻿using AdventOfCode2023.Puzzle.Day12;
+﻿using AdventOfCode2023.Utils;
 
-var puzzle = new Day12();
-puzzle.Setup();
-Console.WriteLine(puzzle.Part1());
-Console.WriteLine(puzzle.Part2());
+var runner = new Runner();
+runner.Run<Day14>();

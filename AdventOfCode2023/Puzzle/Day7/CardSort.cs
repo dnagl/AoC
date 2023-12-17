@@ -26,8 +26,12 @@ public class CardSort : IComparer<string>
     
     public int Compare(string? x, string? y)
     {
+        if (string.IsNullOrEmpty(x) && string.IsNullOrEmpty(y)) return 0;
+        if (!string.IsNullOrEmpty(x) && string.IsNullOrEmpty(y)) return -1;
+        if (string.IsNullOrEmpty(x) && !string.IsNullOrEmpty(y)) return 1;
+        
         var i = 0;
-        var compareValue = Compare(x[i], y[i]);
+        var compareValue = Compare(x![i], y![i]);
         while (compareValue == 0 && i < x.Length - 1)
             compareValue = Compare(x[++i], y[i]);
         return compareValue;
